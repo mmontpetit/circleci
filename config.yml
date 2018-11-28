@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: mmontpetit/build_pipeline:latest
+    steps:
+      - checkout
+      - run: ls
+  test:
+    docker:
+      - image: mmontpetit/build_pipeline:latest
+    steps:
+      - checkout
+      - run: ls
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
+        requires:
+          - build
