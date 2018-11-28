@@ -4,7 +4,7 @@ jobs:
   build:
     docker:
       - image: mmontpetit/build_pipeline:latest
-      - image: mmontpetit/git-resource
+      - image: mmontpetit/build_pipeline:latest
     working_directory: ~/
     steps:
       - checkout
