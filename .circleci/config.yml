@@ -11,7 +11,14 @@ jobs:
       - run:
           name: list files
           command: ls
-
+  runner:
+    machine: true
+    resource_class:  mmontpetit/tangerine
+    steps:
+      - run:
+          name: Setup Kube
+          command: ls -la
+    
   deploy:
     machine:
         enabled: true
@@ -29,6 +36,7 @@ workflows:
   build-and-deploy:
     jobs:
       - build
+      - runner
       - deploy:
           requires:
             - build
